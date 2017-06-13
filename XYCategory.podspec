@@ -1,7 +1,7 @@
 # coding: utf-8
 Pod::Spec.new do |s|
 
-  s.name         = "XYCategories"
+  s.name         = "XYCategory"
 
   s.version      = "0.0.1"
 
