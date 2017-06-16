@@ -7,11 +7,13 @@
 //
 
 #import "UIViewController+Bar.h"
+#import "UIColor+XYKey.h"
 @interface _xycontrollerbarextention : NSObject @end
 @implementation _xycontrollerbarextention @end
 
 @implementation UIViewController (XYBar)
 - (void)setBarColor:(UIColor*)color {
+    if (!color) color = [UIColor colorForKey:keyColorTheme];
     [self.navigationController.navigationBar setBackgroundImage:[self xyimageWithColor:color] forBarMetrics:UIBarMetricsDefault];
 }
 - (UIImage *)xyimageWithColor:(UIColor *)color

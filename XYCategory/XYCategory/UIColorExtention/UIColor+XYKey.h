@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
+extern NSString* const keyColorTheme;
 @interface UIColor (XYKey)
 +(void)registColor:(nullable NSString*)color key:(NSString*)key;
 +(void)registColorsDefault:(NSDictionary<NSString*,NSString*>*)dic transformer:(UIColor*(^)(NSString* value))transformer;

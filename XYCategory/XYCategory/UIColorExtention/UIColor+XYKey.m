@@ -7,7 +7,7 @@
 //
 
 #import "UIColor+XYKey.h"
-
+NSString* const keyColorTheme = @"theme";
 @implementation UIColor (XYKey)
 static UIColor*(^xytransformer)(NSString* value) = nil;
 +(NSMutableDictionary*)colorDic{
