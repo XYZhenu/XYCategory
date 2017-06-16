@@ -8,9 +8,11 @@
 
 #import "UIView+Separator.h"
 #import <objc/runtime.h>
+#import "UIColor+XYKey.h"
 #define XYSepKey(_C_) static char kSeparator##_C_##Key
 #define XYSepSET(_O_,_K_) objc_setAssociatedObject(self, &_K_, _O_, OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 #define XYSepGET(_K_) objc_getAssociatedObject(self, &_K_)
+NSString* const keySepatorColor = @"separator";
 @interface UIView (xyseparator)
 @property (nonatomic, strong, readonly) UIView * _Nonnull topSeparatorLineView;
 @property (nonatomic, strong, readonly) UIView * _Nonnull bottomSeparatorLineView;
@@ -56,13 +58,16 @@ static float separatorWidth = 0.5;
 XYSepKey(Color);
 -(void)setSepColor:(UIColor *)sepColor {
     XYSepSET(sepColor, kSeparatorColorKey);
-    self.topSeparatorLineView.backgroundColor = sepColor;
-    self.bottomSeparatorLineView.backgroundColor = sepColor;
+    self.topSeparatorLineView.backgroundColor = self.sepColor;
+    self.bottomSeparatorLineView.backgroundColor = self.sepColor;
 }
 -(UIColor *)sepColor{
     UIColor * color = XYSepGET(kSeparatorColorKey);
     if (!color) {
-        color = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
+        color = [UIColor colorForKey:keySepatorColor];
+        if (!color) {
+            color = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
+        }
     }
     return color;
 }

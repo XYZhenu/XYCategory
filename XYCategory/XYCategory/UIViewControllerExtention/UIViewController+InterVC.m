@@ -7,6 +7,8 @@
 //
 
 #import "UIViewController+InterVC.h"
+NSString* const keyVCTitle = @"vctitle";
+NSString* const keyVCMessage = @"vcmessage";
 @implementation UIStoryboard (XYInterVC)
 static NSMutableDictionary* ibs = nil;
 static NSMutableDictionary* storys = nil;

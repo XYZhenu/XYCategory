@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN;
 + (UIViewController*)instantiateVC:(Class)classname;
 @end
 
-static NSString* keyVCTitle = @"vctitle";
-static NSString* keyVCMessage = @"vcmessage";
+extern NSString* const keyVCTitle;
+extern NSString* const keyVCMessage;
 
 @interface UIViewController (XYInterVC)
 @property(nonatomic,strong,nullable) NSDictionary* parma;

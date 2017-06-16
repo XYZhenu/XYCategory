@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1D56641EF3848D00AF03AD /* UIView+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D56631EF3848D00AF03AD /* UIView+Color.m */; };
+		AC1D566C1EF3A33200AF03AD /* UIColor+XYKey.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D566B1EF3A33200AF03AD /* UIColor+XYKey.m */; };
 		AC8DDCE71EEFBB750009C5AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCE61EEFBB750009C5AC /* main.m */; };
 		AC8DDCEA1EEFBB750009C5AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCE91EEFBB750009C5AC /* AppDelegate.m */; };
 		AC8DDCED1EEFBB750009C5AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCEC1EEFBB750009C5AC /* ViewController.m */; };
@@ -48,6 +50,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1D56621EF3848D00AF03AD /* UIView+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Color.h"; sourceTree = "<group>"; };
+		AC1D56631EF3848D00AF03AD /* UIView+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Color.m"; sourceTree = "<group>"; };
+		AC1D566A1EF3A33200AF03AD /* UIColor+XYKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XYKey.h"; sourceTree = "<group>"; };
+		AC1D566B1EF3A33200AF03AD /* UIColor+XYKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XYKey.m"; sourceTree = "<group>"; };
 		AC8DDCE21EEFBB750009C5AC /* XYCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8DDCE61EEFBB750009C5AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC8DDCE81EEFBB750009C5AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -135,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC1D56691EF3A31500AF03AD /* UIColorExtention */ = {
+			isa = PBXGroup;
+			children = (
+				AC1D566A1EF3A33200AF03AD /* UIColor+XYKey.h */,
+				AC1D566B1EF3A33200AF03AD /* UIColor+XYKey.m */,
+			);
+			path = UIColorExtention;
+			sourceTree = "<group>";
+		};
 		AC8DDCD91EEFBB750009C5AC = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +195,7 @@
 		AC8DDCFC1EEFBCCF0009C5AC /* XYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				AC1D56691EF3A31500AF03AD /* UIColorExtention */,
 				AC8DDCFD1EEFBCCF0009C5AC /* APNs */,
 				AC8DDD001EEFBCCF0009C5AC /* DeepCopy */,
 				AC8DDD031EEFBCCF0009C5AC /* JKCountDownButton */,
@@ -395,6 +411,8 @@
 				AC8DDD4B1EEFBCCF0009C5AC /* UIView+Message.m */,
 				AC8DDD4C1EEFBCCF0009C5AC /* UIView+Separator.h */,
 				AC8DDD4D1EEFBCCF0009C5AC /* UIView+Separator.m */,
+				AC1D56621EF3848D00AF03AD /* UIView+Color.h */,
+				AC1D56631EF3848D00AF03AD /* UIView+Color.m */,
 			);
 			path = UIViewExtention;
 			sourceTree = "<group>";
@@ -472,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC1D566C1EF3A33200AF03AD /* UIColor+XYKey.m in Sources */,
 				AC8DDD641EEFBCCF0009C5AC /* UIViewController+Bar.m in Sources */,
 				AC8DDD5F1EEFBCCF0009C5AC /* XYNavigationController.m in Sources */,
 				AC8DDD531EEFBCCF0009C5AC /* NSBundle+AppInfo.m in Sources */,
@@ -490,6 +509,7 @@
 				AC8DDD591EEFBCCF0009C5AC /* UIApplication+OpenUrl.m in Sources */,
 				AC8DDD611EEFBCCF0009C5AC /* XYTabBarController.m in Sources */,
 				AC8DDD631EEFBCCF0009C5AC /* XYTextView.m in Sources */,
+				AC1D56641EF3848D00AF03AD /* UIView+Color.m in Sources */,
 				AC8DDD581EEFBCCF0009C5AC /* NSString+Regex.m in Sources */,
 				AC8DDD521EEFBCCF0009C5AC /* LocationManager.m in Sources */,
 				AC8DDD5B1EEFBCCF0009C5AC /* UIAlertController+Convience.m in Sources */,
@@ -668,6 +688,7 @@
 				AC8DDCFB1EEFBB750009C5AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

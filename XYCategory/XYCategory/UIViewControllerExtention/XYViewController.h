@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface XYViewController : UIViewController
-@property(nonatomic,strong)NSDictionary*parma;
 @end
