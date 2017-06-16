@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+NS_ASSUME_NONNULL_BEGIN
 @interface NSFileManager (XYDirctory)
-- ( float )cacheSize;//M
-- ( float )folderSizeAtPath:(NSString *)folderPath;
-- ( long long )fileSizeAtPath:(NSString *)filePath;
 
-- (void)clearCache;
-- (void)clearPath:(NSString*)path;
++(nullable NSDictionary*)getCachedDic:(NSString*)cacheName;
++(void)setCachedDic:(nullable NSDictionary*)dic name:(NSString*)cacheName;
+
++(float)cacheSize;//M
++(float)folderSizeAtPath:(NSString *)folderPath;
++(long long)fileSizeAtPath:(NSString *)filePath;
++(void)clearCache;
++(void)clearPath:(NSString*)path;
 @end
+NS_ASSUME_NONNULL_END

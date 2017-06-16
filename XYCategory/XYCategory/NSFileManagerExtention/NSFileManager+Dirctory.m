@@ -9,7 +9,24 @@
 #import "NSFileManager+Dirctory.h"
 
 @implementation NSFileManager (XYDirctory)
--( float )cacheSize
++(NSDictionary*)getCachedDic:(NSString*)cacheName{
+    NSDictionary* dic = nil;
+    if (cacheName) {
+        NSString* cachepath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/%@.json",cacheName]];
+        dic = [NSDictionary dictionaryWithContentsOfFile:cachepath];
+    }
+    return dic;
+}
++(void)setCachedDic:(NSDictionary*)dic name:(NSString*)cacheName{
+    if (!cacheName) return;
+    NSString* cachepath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/%@.json",cacheName]];
+    if (!dic) {
+        [[NSFileManager defaultManager ] fileExistsAtPath :cachepath];
+    }else{
+        [dic writeToFile:cachepath atomically:YES];
+    }
+}
++( float )cacheSize
 {
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains (NSCachesDirectory , NSUserDomainMask , YES) firstObject];
     return [ self folderSizeAtPath :cachePath];
@@ -17,7 +34,7 @@
 
 //由于缓存文件存在沙箱中，我们可以通过NSFileManager API来实现对缓存文件大小的计算。
 // 遍历文件夹获得文件夹大小，返回多少 M
-- ( float ) folderSizeAtPath:( NSString *) folderPath{
++( float ) folderSizeAtPath:( NSString *) folderPath{
     NSFileManager * manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath :folderPath]) return 0 ;
     NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath :folderPath] objectEnumerator];
@@ -32,7 +49,7 @@
 }
 
 // 计算 单个文件的大小
-- ( long long ) fileSizeAtPath:( NSString *) filePath{
++( long long ) fileSizeAtPath:( NSString *) filePath{
     NSFileManager * manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath :filePath]){
         return [[manager attributesOfItemAtPath :filePath error : nil] fileSize];
@@ -40,12 +57,12 @@
     return 0;
 }
 
-- (void)clearCache
++(void)clearCache
 {
     NSString * cachePath = [NSSearchPathForDirectoriesInDomains (NSCachesDirectory , NSUserDomainMask , YES ) firstObject];
     [self clearPath:cachePath];
 }
-- (void)clearPath:(NSString*)path {
++(void)clearPath:(NSString*)path {
     NSArray * files = [[NSFileManager defaultManager ] subpathsAtPath :path];
     //NSLog ( @"cachpath = %@" , cachePath);
     for ( NSString * p in files) {

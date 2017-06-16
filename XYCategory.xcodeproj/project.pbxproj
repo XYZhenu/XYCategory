@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC1D56641EF3848D00AF03AD /* UIView+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D56631EF3848D00AF03AD /* UIView+Color.m */; };
 		AC1D566C1EF3A33200AF03AD /* UIColor+XYKey.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D566B1EF3A33200AF03AD /* UIColor+XYKey.m */; };
+		AC1D567B1EF3CAAD00AF03AD /* XYSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1D567A1EF3CAAD00AF03AD /* XYSecurity.m */; };
 		AC8DDCE71EEFBB750009C5AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCE61EEFBB750009C5AC /* main.m */; };
 		AC8DDCEA1EEFBB750009C5AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCE91EEFBB750009C5AC /* AppDelegate.m */; };
 		AC8DDCED1EEFBB750009C5AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDCEC1EEFBB750009C5AC /* ViewController.m */; };
@@ -54,6 +55,8 @@
 		AC1D56631EF3848D00AF03AD /* UIView+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Color.m"; sourceTree = "<group>"; };
 		AC1D566A1EF3A33200AF03AD /* UIColor+XYKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+XYKey.h"; sourceTree = "<group>"; };
 		AC1D566B1EF3A33200AF03AD /* UIColor+XYKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+XYKey.m"; sourceTree = "<group>"; };
+		AC1D56791EF3CAAD00AF03AD /* XYSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSecurity.h; sourceTree = "<group>"; };
+		AC1D567A1EF3CAAD00AF03AD /* XYSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSecurity.m; sourceTree = "<group>"; };
 		AC8DDCE21EEFBB750009C5AC /* XYCategory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYCategory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC8DDCE61EEFBB750009C5AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC8DDCE81EEFBB750009C5AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,6 +153,15 @@
 			path = UIColorExtention;
 			sourceTree = "<group>";
 		};
+		AC1D56781EF3CAAD00AF03AD /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				AC1D56791EF3CAAD00AF03AD /* XYSecurity.h */,
+				AC1D567A1EF3CAAD00AF03AD /* XYSecurity.m */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 		AC8DDCD91EEFBB750009C5AC = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +207,7 @@
 		AC8DDCFC1EEFBCCF0009C5AC /* XYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				AC1D56781EF3CAAD00AF03AD /* Security */,
 				AC1D56691EF3A31500AF03AD /* UIColorExtention */,
 				AC8DDCFD1EEFBCCF0009C5AC /* APNs */,
 				AC8DDD001EEFBCCF0009C5AC /* DeepCopy */,
@@ -503,6 +516,7 @@
 				AC8DDD661EEFBCCF0009C5AC /* UIViewController+InterVC.m in Sources */,
 				AC8DDD621EEFBCCF0009C5AC /* UITextView+UsualSetting.m in Sources */,
 				AC8DDD681EEFBCCF0009C5AC /* UIView+Animation.m in Sources */,
+				AC1D567B1EF3CAAD00AF03AD /* XYSecurity.m in Sources */,
 				AC8DDD571EEFBCCF0009C5AC /* NSString+Caculate.m in Sources */,
 				AC8DDD6C1EEFBCCF0009C5AC /* UIView+Message.m in Sources */,
 				AC8DDD6B1EEFBCCF0009C5AC /* UIView+Layout.m in Sources */,
