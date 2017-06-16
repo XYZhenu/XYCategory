@@ -1,11 +1,11 @@
 # coding: utf-8
 Pod::Spec.new do |s|
 
-  s.name         = "XYCategories"
+  s.name         = "XYCategory"
 
   s.version      = "0.0.1"
 
-  s.summary      = "XYCategories Source ."
+  s.summary      = "XYCategory Source ."
 
   s.description  = <<-DESC
                    xyzhenu framework
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.source_files = 'XYCategory/XYCategory/**/*.{h,m}'
   s.resources = 'XYCategory/XYCategory/*.bundle'
 
-  s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/XYCategories'" }
+  s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/XYCategory'" }
   s.requires_arc = true
   s.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
 
