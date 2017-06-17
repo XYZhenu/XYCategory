@@ -10,5 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN;
 @interface NSBundle (XYAppInfo)
 + (NSString*)executableName;
++ (NSString *)machineModel;
++ (NSString*)deviceName;
 @end
 NS_ASSUME_NONNULL_END;

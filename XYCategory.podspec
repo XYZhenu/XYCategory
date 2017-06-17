@@ -23,15 +23,22 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source =  { :path => '.' }
   s.source_files = 'XYCategory/XYCategory/**/*.{h,m}'
+  s.exclude_files = 'XYCategory/XYCategory/Location/*'
   s.resources = 'XYCategory/XYCategory/*.bundle'
 
   s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/XYCategory'" }
   s.requires_arc = true
   s.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
 
-  s.frameworks = 'CoreLocation','UserNotifications'
+  s.frameworks = 'UserNotifications'
 
 #  s.dependency 'SocketRocket'
 #  s.libraries = "stdc++"
+
+s.subspec 'Location' do |l|
+  l.source_files = 'XYCategory/XYCategory/Location/*.{h,m}'
+  l.requires_arc = true
+  l.frameworks = 'CoreLocation'
+end
 
 end
