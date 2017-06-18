@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
-extern NSString* const keySepatorColor;
+extern NSString* const keyColorSepator;
 @interface UIView (XYSeparator)
 @property (nonatomic, assign)IBInspectable BOOL topSep;
 @property (nonatomic, assign)IBInspectable CGFloat tsTop;

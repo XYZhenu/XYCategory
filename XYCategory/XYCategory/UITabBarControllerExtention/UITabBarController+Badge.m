@@ -9,6 +9,15 @@
 #import "UITabBarController+Badge.h"
 
 @implementation UITabBarController (XYBadge)
+- (void)setItemsImage:(NSArray<NSString*>*)images selectedImages:(NSArray<NSString*>*)selectedImages {
+    NSArray* tabs = self.tabBar.items;
+    UITabBarItem* item;
+    for (int i=0; i<images.count; i++) {
+        item = tabs[i];
+        item.image = [[UIImage imageNamed:images[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        item.selectedImage = [[UIImage imageNamed:selectedImages[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }
+}
 - (void)setTab:(NSUInteger)tabIndex badgeValue:(id)value {
     if (self.tabBar.items.count < tabIndex + 1) return;
     NSString* badgevalue = nil;

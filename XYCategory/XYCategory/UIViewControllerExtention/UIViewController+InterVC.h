@@ -18,9 +18,9 @@ extern NSString* const keyVCTitle;
 extern NSString* const keyVCMessage;
 
 @interface UIViewController (XYInterVC)
-@property(nonatomic,strong,nullable) NSDictionary* parma;
-@property(nonatomic,strong,nullable)void(^callback)(NSDictionary* _Nullable message);
--(void)pushClass:(Class)cls parma:(NSDictionary* _Nullable)parma callBack:(void(^_Nullable)(NSDictionary* _Nullable message))callBack;
+@property(nonatomic,strong,nullable) NSDictionary<NSString*,id>* parma;
+@property(nonatomic,strong,nullable)void(^callback)(NSDictionary<NSString*,id>* _Nullable message);
+-(void)pushClass:(Class)cls parma:(NSDictionary<NSString*, id>* _Nullable)parma callBack:(void(^_Nullable)(NSDictionary<NSString*, id>* _Nullable message))callBack;
 
 -(void)pop;
 -(void)popDouble;

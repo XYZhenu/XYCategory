@@ -77,14 +77,14 @@ static char parmakey;
     return objc_getAssociatedObject(self, &parmakey);
 }
 static char callBackKey;
--(void)setCallback:(void (^)(NSDictionary*))callback{
+-(void)setCallback:(void (^)(NSDictionary<NSString*, id>*))callback{
     objc_setAssociatedObject(self, &callBackKey, callback, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
--(void (^)(NSDictionary*))callback{
+-(void (^)(NSDictionary<NSString*, id>*))callback{
     return objc_getAssociatedObject(self, &callBackKey);
 }
 
--(void)pushClass:(Class)cls parma:(NSDictionary*)parma callBack:(void(^)(NSDictionary* message))callBack{
+-(void)pushClass:(Class)cls parma:(NSDictionary<NSString*, id>*)parma callBack:(void(^)(NSDictionary<NSString*, id>* message))callBack{
     UIViewController* obj = [UIStoryboard instantiateVC:cls];
     obj.callback = callBack;
     obj.parma = parma;
