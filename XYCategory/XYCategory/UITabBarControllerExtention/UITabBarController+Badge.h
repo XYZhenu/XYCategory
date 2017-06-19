@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UITabBarController (XYBadge)
-- (void)setItemsImage:(NSArray<NSString*>*)images selectedImages:(NSArray<NSString*>*)selectedImages;
+- (void)setItemsImage:(NSArray*)images selectedImages:(NSArray*)selectedImages;
 - (void)setTab:(NSUInteger)tabIndex badgeValue:(id)value;
 - (void)showRedDotOnIndex:(int)index;   //显示小红点
 - (void)hideRedDotOnIndex:(int)index; //隐藏小红点
