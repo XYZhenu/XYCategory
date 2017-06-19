@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN;
 @interface UIApplication (XYOpenUrl)
-- (void)registOpenUrlHandler:(BOOL(^)(NSURL *))handler;
+- (void)registOpenUrlHandler:(BOOL(^)(NSURL * url))handler;
 @end
 NS_ASSUME_NONNULL_END;

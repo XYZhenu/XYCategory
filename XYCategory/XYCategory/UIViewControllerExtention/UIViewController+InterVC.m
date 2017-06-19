@@ -39,6 +39,7 @@ static NSMutableDictionary* storys = nil;
             ibs[ident] = ibName;
         }
     }
+    
 }
 + (void)registClass:(Class)classname inIB:(NSString*)ibName {
     [self registClasses:@[NSStringFromClass(classname)] inIB:ibName];
@@ -60,7 +61,6 @@ static NSMutableDictionary* storys = nil;
     }
     if (!vc) {
         vc = [classname new];
-    }else{
         NSLog(@"class %@ not found in storyboards already registered",NSStringFromClass(classname));
     }
     return vc;

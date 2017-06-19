@@ -9,7 +9,7 @@
 #import "UIApplication+OpenUrl.h"
 static NSMutableArray* openurlHandlerArray = nil;
 @implementation UIApplication (XYOpenUrl)
-- (void)registOpenUrlHandler:(BOOL(^)(NSURL *))handler {
+- (void)registOpenUrlHandler:(BOOL(^)(NSURL * url))handler {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         openurlHandlerArray = [NSMutableArray array];
