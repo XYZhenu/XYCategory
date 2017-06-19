@@ -26,7 +26,7 @@
 }
 
 -(BOOL)validPassword{
-    NSString *pattern = @"^[0-9a-zA-Z]{6,18}$";
+    NSString *pattern = @"[A-Z0-9a-z._%+-]{6,15}";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [pred evaluateWithObject:self];
 }
