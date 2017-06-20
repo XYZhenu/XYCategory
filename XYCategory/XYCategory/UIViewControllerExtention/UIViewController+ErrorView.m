@@ -1,6 +1,6 @@
 //
 //  UIViewController+ErrorView.m
-//  XYCategories
+//  XYCategory
 //
 //  Created by xyzhenu on 2017/6/8.
 //  Copyright © 2017年 xieyan. All rights reserved.
@@ -67,7 +67,7 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     };
 }
 + (UIImage*)imageName:(NSString*)name {
-    NSString* path = [[[[NSBundle bundleForClass:[_xycontrollererrorviewextention class]] resourcePath] stringByAppendingPathComponent:@"XYCategories.bundle"]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",name]];
+    NSString* path = [[[[NSBundle bundleForClass:[_xycontrollererrorviewextention class]] resourcePath] stringByAppendingPathComponent:@"XYCategory.bundle"]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",name]];
     return [UIImage imageWithContentsOfFile:path];
 }
 +(void)load {

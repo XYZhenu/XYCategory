@@ -1,6 +1,6 @@
 //
 //  UIViewController+Bar.m
-//  XYCategories
+//  XYCategory
 //
 //  Created by xieyan on 2017/6/3.
 //  Copyright © 2017年 xieyan. All rights reserved.
@@ -43,7 +43,7 @@
     UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (!image) {
          NSString* path = [[[[NSBundle bundleForClass:[_xycontrollerbarextention class]] resourcePath]
-         stringByAppendingPathComponent:@"XYCategories.bundle"]stringByAppendingPathComponent:[NSString
+         stringByAppendingPathComponent:@"XYCategory.bundle"]stringByAppendingPathComponent:[NSString
          stringWithFormat:@"%@.png",@"return"]];
         image = [UIImage imageWithContentsOfFile:path];
     }
