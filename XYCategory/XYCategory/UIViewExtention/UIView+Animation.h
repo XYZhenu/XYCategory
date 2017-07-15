@@ -10,4 +10,5 @@
 
 @interface UIView (XYAnimation)
 - (void)shake;
+- (void)cubeUp;
 @end

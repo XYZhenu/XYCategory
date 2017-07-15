@@ -27,4 +27,12 @@
         }
     }];
 }
+- (void)cubeUp {
+    CATransition *animation = [CATransition animation];
+    animation.duration = 0.5;
+    animation.type = @"cube";
+    animation.subtype = kCATransitionFromTop;
+    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    [self.layer addAnimation:animation forKey:@"animation"];
+}
 @end
