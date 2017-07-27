@@ -23,6 +23,12 @@
     }
     if (launchImage) {
         NSString* path = [[NSBundle mainBundle] pathForResource:launchImage ofType:@"png"];
+        if (!path) {
+            path = [[NSBundle mainBundle] pathForResource:[launchImage stringByAppendingString:@"@2x"] ofType:@"png"];
+            if (!path) {
+                path = [[NSBundle mainBundle] pathForResource:[launchImage stringByAppendingString:@"@3x"] ofType:@"png"];
+            }
+        }
         return [[UIImage alloc] initWithContentsOfFile:path];
     }
     return nil;
