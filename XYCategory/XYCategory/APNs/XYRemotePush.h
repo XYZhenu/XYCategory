@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN;
 - (void)openAPNs_Badge:(BOOL)openBadge Sound:(BOOL)openSound Alert:(BOOL)openAlert;
 
 @property(nonatomic, strong) NSString* pushToken;
-- (void)setPushTokenBlock:(void(^)(NSString* token))block;
+- (void)setPushTokenBlock:(void(^)(NSString* token,NSData* tokenData))block;
 
 - (void)registIdentifier:(NSString*)identifier Handler:(void(^)(NSDictionary* userInfo,UIApplicationState state))handler;
 - (void)unregistIdentifier:(NSString*)identifier;

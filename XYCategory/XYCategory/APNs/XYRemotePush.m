@@ -13,7 +13,8 @@
     NSMutableDictionary* _handlerDic;
     NSUInteger _pushOption;
 }
-@property (nonatomic,strong)void(^pushtokenBlock)(NSString* token);
+@property (nonatomic,strong)void(^pushtokenBlock)(NSString* token,NSData* tokenData);
+@property (nonatomic,strong)NSData* pushTokenData;
 @end
 @implementation XYRemotePush
 @synthesize pushToken = _pushToken;
@@ -21,7 +22,7 @@
     static XYRemotePush* pushManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        pushManager = [[XYRemotePush alloc] init];
+        pushManager = [[self alloc] init];
     });
     return pushManager;
 }
@@ -61,7 +62,7 @@
     [[NSUserDefaults standardUserDefaults] setValue:pushToken forKey:@"RemotePushNotificationToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     if (self.pushtokenBlock) {
-        self.pushtokenBlock(pushToken);
+        self.pushtokenBlock(pushToken,self.pushTokenData);
     }
 }
 -(NSString *)pushToken {
@@ -73,7 +74,7 @@
     }
     return _pushToken;
 }
-- (void)setPushTokenBlock:(void(^)(NSString* token))block {
+- (void)setPushTokenBlock:(void(^)(NSString* token,NSData* tokenData))block {
     self.pushtokenBlock = block;
 }
 
@@ -143,12 +144,16 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString * token=[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]; //去掉"<>"
     token=[[token description] stringByReplacingOccurrencesOfString:@" " withString:@""]; //去掉中间空格
+    [XYRemotePush Instance].pushTokenData = deviceToken;
     [XYRemotePush Instance].pushToken = token;
+    
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSLog(@"fail to register for remoteNotifications %@",error);
+    [XYRemotePush Instance].pushTokenData = [NSData data];
     [XYRemotePush Instance].pushToken = @"";
+    
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo { // - 10
