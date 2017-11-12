@@ -9,6 +9,7 @@
 #import "UIViewController+InterVC.h"
 NSString* const keyVCTitle = @"vctitle";
 NSString* const keyVCMessage = @"vcmessage";
+NSString* const keyVCUrl = @"vcurl";
 @implementation UIStoryboard (XYInterVC)
 static NSMutableDictionary* ibs = nil;
 static NSMutableDictionary* storys = nil;
@@ -112,5 +113,12 @@ static char callBackKey;
         vc = array[0];
     }
     [self.navigationController popToViewController:vc animated:YES];
+}
+- (UIViewController* _Nullable)previousVC:(NSInteger)indexFromBack{
+    NSArray* array = self.navigationController.viewControllers;
+    if (array && array.count>indexFromBack) {
+        return array[array.count-indexFromBack-1];
+    }
+    return nil;
 }
 @end

@@ -8,6 +8,7 @@
 
 #import "NSBundle+AppInfo.h"
 #include <sys/sysctl.h>
+#import <UIKit/UIKit.h>
 @implementation NSBundle (XYAppInfo)
 + (NSString*)executableName{
     return [NSBundle mainBundle].infoDictionary[@"CFBundleExecutable"];

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN;
 
 extern NSString* const keyVCTitle;
 extern NSString* const keyVCMessage;
+extern NSString* const keyVCUrl;
 
 @interface UIViewController (XYInterVC)
 @property(nonatomic,strong,nullable) NSDictionary<NSString*,id>* parma;
@@ -25,6 +26,6 @@ extern NSString* const keyVCMessage;
 -(void)pop;
 -(void)popDouble;
 -(void)pop:(int)num;
-
+-(UIViewController * _Nullable )previousVC:(NSInteger)indexFromBack;
 @end
 NS_ASSUME_NONNULL_END;

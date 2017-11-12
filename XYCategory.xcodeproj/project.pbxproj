@@ -48,6 +48,7 @@
 		AC8DDD6C1EEFBCCF0009C5AC /* UIView+Message.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDD4B1EEFBCCF0009C5AC /* UIView+Message.m */; };
 		AC8DDD6D1EEFBCCF0009C5AC /* UIView+Separator.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DDD4D1EEFBCCF0009C5AC /* UIView+Separator.m */; };
 		AC8DDD6E1EEFBCCF0009C5AC /* XYCategory.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AC8DDD4E1EEFBCCF0009C5AC /* XYCategory.bundle */; };
+		ACC2DBE21FA5BE4000CE6AE7 /* NSDate+Caculate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC2DBE11FA5BE4000CE6AE7 /* NSDate+Caculate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		AC8DDD4D1EEFBCCF0009C5AC /* UIView+Separator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Separator.m"; sourceTree = "<group>"; };
 		AC8DDD4E1EEFBCCF0009C5AC /* XYCategory.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XYCategory.bundle; sourceTree = "<group>"; };
 		AC8DDD6F1EEFBD1D0009C5AC /* XYCategory.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XYCategory.podspec; sourceTree = "<group>"; };
+		ACC2DBE01FA5BE4000CE6AE7 /* NSDate+Caculate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Caculate.h"; sourceTree = "<group>"; };
+		ACC2DBE11FA5BE4000CE6AE7 /* NSDate+Caculate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Caculate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +210,7 @@
 		AC8DDCFC1EEFBCCF0009C5AC /* XYCategory */ = {
 			isa = PBXGroup;
 			children = (
+				ACC2DBDF1FA5BE0900CE6AE7 /* NSDateExtention */,
 				AC1D56781EF3CAAD00AF03AD /* Security */,
 				AC1D56691EF3A31500AF03AD /* UIColorExtention */,
 				AC8DDCFD1EEFBCCF0009C5AC /* APNs */,
@@ -430,6 +434,15 @@
 			path = UIViewExtention;
 			sourceTree = "<group>";
 		};
+		ACC2DBDF1FA5BE0900CE6AE7 /* NSDateExtention */ = {
+			isa = PBXGroup;
+			children = (
+				ACC2DBE01FA5BE4000CE6AE7 /* NSDate+Caculate.h */,
+				ACC2DBE11FA5BE4000CE6AE7 /* NSDate+Caculate.m */,
+			);
+			path = NSDateExtention;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -509,6 +522,7 @@
 				AC8DDD531EEFBCCF0009C5AC /* NSBundle+AppInfo.m in Sources */,
 				AC8DDD541EEFBCCF0009C5AC /* NSBundle+Image.m in Sources */,
 				AC8DDCED1EEFBB750009C5AC /* ViewController.m in Sources */,
+				ACC2DBE21FA5BE4000CE6AE7 /* NSDate+Caculate.m in Sources */,
 				AC8DDD6A1EEFBCCF0009C5AC /* UIView+Geometry.m in Sources */,
 				AC8DDD6D1EEFBCCF0009C5AC /* UIView+Separator.m in Sources */,
 				AC8DDD671EEFBCCF0009C5AC /* XYViewController.m in Sources */,

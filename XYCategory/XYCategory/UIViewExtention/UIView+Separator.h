@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 NS_ASSUME_NONNULL_BEGIN
+IB_DESIGNABLE;
 extern NSString* const keyColorSepator;
 @interface UIView (XYSeparator)
 @property (nonatomic, assign)IBInspectable BOOL topSep;
