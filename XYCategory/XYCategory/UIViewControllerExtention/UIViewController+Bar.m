@@ -49,6 +49,8 @@
     }
     [btn setImage:image forState:UIControlStateNormal];
     btn.frame = CGRectMake(0, 0, 40, 40);
+    btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [btn addConstraints:@[[NSLayoutConstraint constraintWithItem:btn attribute:(NSLayoutAttributeWidth) relatedBy:(NSLayoutRelationEqual) toItem:nil attribute:(NSLayoutAttributeNotAnAttribute) multiplier:1 constant:40],[NSLayoutConstraint constraintWithItem:btn attribute:(NSLayoutAttributeHeight) relatedBy:(NSLayoutRelationEqual) toItem:nil attribute:(NSLayoutAttributeNotAnAttribute) multiplier:1 constant:40]]];
     btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
 //    btn.imageEdgeInsets = UIEdgeInsetsMake(0, -12, 0, 0);
     [btn addTarget:self action:@selector(xybarpop) forControlEvents:UIControlEventTouchUpInside];
