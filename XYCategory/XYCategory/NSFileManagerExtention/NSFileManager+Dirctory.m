@@ -21,7 +21,9 @@
     if (!cacheName) return;
     NSString* cachepath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Library/Caches/%@.json",cacheName]];
     if (!dic) {
-        [[NSFileManager defaultManager ] fileExistsAtPath :cachepath];
+        if ([[NSFileManager defaultManager ] fileExistsAtPath :cachepath]) {
+            [[NSFileManager defaultManager ] removeItemAtPath:cachepath error:nil];
+        }
     }else{
         [dic writeToFile:cachepath atomically:YES];
     }
