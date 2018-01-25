@@ -94,7 +94,7 @@
     return completionHandler(_pushOption);
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler { // selected an notification
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler { // selected an notification
     NSLog(@"received notification \n%@",response.notification.request.content.userInfo);
     [self receivedUserInfo:response.notification.request.content.userInfo state:[UIApplication sharedApplication].applicationState];
     completionHandler();
