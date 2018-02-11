@@ -27,6 +27,6 @@
     return model;
 }
 + (NSString*)deviceName{
-    return [NSString stringWithFormat:@"%@_%@_%@",[UIDevice currentDevice].name,[self machineModel], [[UIDevice currentDevice] systemVersion]];
+    return [NSString stringWithFormat:@"%@_%@",[self machineModel], [[UIDevice currentDevice] systemVersion]];
 }
 @end
