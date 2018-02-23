@@ -49,7 +49,7 @@
         center.delegate = self;
         [center requestAuthorizationWithOptions:option completionHandler:^(BOOL granted, NSError * _Nullable error){
             if( !error && granted){
-                [app registerForRemoteNotifications];
+                [app performSelectorOnMainThread:@selector(registerForRemoteNotifications) withObject:nil waitUntilDone:NO modes:@[NSRunLoopCommonModes]];
             }
         }];
     }else if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"8.0")){
