@@ -6,12 +6,22 @@
 //  Copyright © 2017年 xieyan. All rights reserved.
 //
 #import "UIViewController+ErrorView.h"
-NSString * const keyErrorViewNoData = @"nodataerrorview";
-NSString * const keyErrorViewNetFailure = @"netfailureerrorview";
+#import <objc/runtime.h>
+NSString * const keyErrorViewNoData = @"emptylist";
+NSString * const keyErrorViewNetFailure = @"networkfailed";
 @interface _xycontrollererrorviewextention : NSObject @end
 @implementation _xycontrollererrorviewextention @end
 @implementation UIViewController (XYErrorView)
-static NSMutableDictionary* errorviewsDic = nil;
+static char errorViewDicKey;
+-(NSMutableDictionary*)errorviewsDic{
+    NSMutableDictionary* dic = objc_getAssociatedObject(self, &errorViewDicKey);
+    if (!dic) {
+        dic = [NSMutableDictionary dictionary];
+        objc_setAssociatedObject(self, &errorViewDicKey, dic, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return dic;
+}
+
 static NSMutableDictionary* errorviewsBlockDic = nil;
 + (void(^)(UIView* view))addImage:(id)image title:(NSString*)title content:(NSString*)content {
     return ^(UIView* view){
@@ -67,6 +77,8 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     };
 }
 + (UIImage*)imageName:(NSString*)name {
+    UIImage* image = [UIImage imageNamed:name];
+    if (image) return image;
     NSString* path = [[[[NSBundle bundleForClass:[_xycontrollererrorviewextention class]] resourcePath] stringByAppendingPathComponent:@"XYCategory.bundle"]stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png",name]];
     return [UIImage imageWithContentsOfFile:path];
 }
@@ -76,7 +88,6 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     [errorviewsBlockDic setValue:block forKey:keyErrorViewNetFailure];
     block = [UIViewController addImage:[self imageName:@"emptylist"] title:@"还没有任何数据" content:nil];
     [errorviewsBlockDic setValue:block forKey:keyErrorViewNoData];
-    errorviewsDic = [NSMutableDictionary dictionary];
 }
 + (void)registErrorViewID:(NSString*)identifier customView:(void(^)(UIView* view))buildBlock {
     [errorviewsBlockDic setValue:buildBlock forKey:identifier];
@@ -86,13 +97,13 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     if (!block) return;
     UIView* view = nil;
     BOOL isNewView = YES;
-    if (errorviewsDic[identifier]) {
+    if ([self errorviewsDic][identifier]) {
         isNewView = NO;
-        view = errorviewsDic[identifier];
+        view = [self errorviewsDic][identifier];
         [view removeFromSuperview];
     }else{
         view = [UIView new];
-        [errorviewsDic setValue:view forKey:identifier];
+        [[self errorviewsDic] setValue:view forKey:identifier];
     }
     [self.view addSubview:view];
     view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -102,14 +113,15 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     if (isNewView) block(view);
 }
 - (void)hideErrorViewID:(NSString*)identifier {
-    UIView* errorView = errorviewsDic[identifier];
+    UIView* errorView = [self errorviewsDic][identifier];
     [errorView removeFromSuperview];
-    [errorviewsDic removeObjectForKey:identifier];
+    [[self errorviewsDic] removeObjectForKey:identifier];
 }
 - (void)hideErrorViewAll {
-    for (NSString* key in errorviewsDic) {
-        [((UIView*)[errorviewsDic objectForKey:key]) removeFromSuperview];
+    for (NSString* key in [self errorviewsDic]) {
+        [((UIView*)[[self errorviewsDic] objectForKey:key]) removeFromSuperview];
     }
-    [errorviewsDic removeAllObjects];
+    [[self errorviewsDic] removeAllObjects];
 }
 @end
+
