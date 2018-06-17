@@ -92,9 +92,9 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
 + (void)registErrorViewID:(NSString*)identifier customView:(void(^)(UIView* view))buildBlock {
     [errorviewsBlockDic setValue:buildBlock forKey:identifier];
 }
-- (void)showErrorViewID:(NSString*)identifier {
+- (UIView*)showErrorViewID:(NSString*)identifier {
     void(^block)(UIView* view) = errorviewsBlockDic[identifier];
-    if (!block) return;
+    if (!block) return nil;
     UIView* view = nil;
     BOOL isNewView = YES;
     if ([self errorviewsDic][identifier]) {
@@ -111,6 +111,7 @@ static NSMutableDictionary* errorviewsBlockDic = nil;
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterY multiplier:1 constant:60]];
     if (isNewView) block(view);
+    return view;
 }
 - (void)hideErrorViewID:(NSString*)identifier {
     UIView* errorView = [self errorviewsDic][identifier];

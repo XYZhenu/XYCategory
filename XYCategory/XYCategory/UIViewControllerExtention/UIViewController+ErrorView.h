@@ -15,7 +15,7 @@ extern NSString * const keyErrorViewNetFailure;
 //image accept image name, image fullpath string, image file url & UIImage;
 + (void(^)(UIView* view))addImage:(nullable id)image title:(nullable NSString*)title content:(nullable NSString*)content;
 + (void)registErrorViewID:(NSString*)identifier customView:(void(^)(UIView* view))buildBlock;
-- (void)showErrorViewID:(NSString*)identifier;
+- (UIView* _Nullable)showErrorViewID:(NSString*)identifier;
 - (void)hideErrorViewID:(NSString*)identifier;
 - (void)hideErrorViewAll;
 @end
