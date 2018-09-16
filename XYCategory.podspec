@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
     }
     s.authors      = { "xyzhenu"      => "1515489649@qq.com" }
     s.platform     = :ios
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '9.0'
     s.source =  { :path => '.' }
     s.user_target_xcconfig  = { 'FRAMEWORK_SEARCH_PATHS' => "'$(PODS_ROOT)/XYCategory'" }
 #    s.dependency 'SocketRocket'
