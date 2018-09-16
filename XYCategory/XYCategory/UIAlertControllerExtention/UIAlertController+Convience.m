@@ -18,13 +18,13 @@
 
 @implementation UIViewController (XYAlert)
 
-- (UIAlertController *)alertMsg:( NSString *)msg cancel:(void(^)())cancel{
+- (UIAlertController *)alertMsg:( NSString *)msg cancel:(void(^)(void))cancel{
     return [self alertMsg:msg cancel:cancel confirm:nil];
 }
-- (UIAlertController *)alertMsg:( NSString *)msg confirm:(void(^)())confirm{
+- (UIAlertController *)alertMsg:( NSString *)msg confirm:(void(^)(void))confirm{
     return [self alertMsg:msg cancel:nil confirm:confirm];
 }
-- (UIAlertController *)alertMsg:( NSString *)msg cancel:(void(^)())cancel confirm:(void(^)())confirm{
+- (UIAlertController *)alertMsg:( NSString *)msg cancel:(void(^)(void))cancel confirm:(void(^)(void))confirm{
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
     if (cancel) {
         [alert actionTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
@@ -46,7 +46,7 @@
 
 @implementation UIViewController (XYSheet)
 
--(UIAlertController *)sheetMsg:(id)msg title:(NSString *)title cancel:(void (^)())cancel confirm:(void (^)(NSInteger indexs))confirm{
+-(UIAlertController *)sheetMsg:(id)msg title:(NSString *)title cancel:(void (^)(void))cancel confirm:(void (^)(NSInteger indexs))confirm{
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:title preferredStyle:UIAlertControllerStyleActionSheet];
     if (cancel) {
         [alert actionTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {

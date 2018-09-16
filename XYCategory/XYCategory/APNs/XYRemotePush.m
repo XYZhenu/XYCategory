@@ -89,17 +89,15 @@
     [_handlerDic removeObjectForKey:identifier];
 }
 
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler API_AVAILABLE(ios(10.0)){
     return completionHandler(_pushOption);
 }
 
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler { // selected an notification
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler API_AVAILABLE(ios(10.0)) { // selected an notification
     NSLog(@"received notification \n%@",response.notification.request.content.userInfo);
     [self receivedUserInfo:response.notification.request.content.userInfo state:[UIApplication sharedApplication].applicationState];
     completionHandler();
 }
-
 
 - (void)receivedUserInfo:(NSDictionary*)userInfo state:(UIApplicationState)state{
     [_handlerDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -173,15 +171,16 @@
 //    completionHandler(UIBackgroundFetchResultNewData);
 //}
 
-- (void)application:(UIApplication *)application handleActionWithIdentifier:(nullable NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void(^)())completionHandler { // 9 - 10 selected an notification
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(nullable NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo withResponseInfo:(NSDictionary *)responseInfo completionHandler:(void(^)(void))completionHandler { // 9 - 10 selected an notification
     NSLog(@"received notification \n%@",userInfo);
     [[XYRemotePush Instance] receivedUserInfo:userInfo state:application.applicationState];
     completionHandler();
 }
 
-- (void)application:(UIApplication *)application handleActionWithIdentifier:(nullable NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)())completionHandler { // 8 - 10 selected an notification
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(nullable NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void(^)(void))completionHandler { // 8 - 10 selected an notification
     NSLog(@"received notification \n%@",userInfo);
     [[XYRemotePush Instance] receivedUserInfo:userInfo state:application.applicationState];
     completionHandler();
 }
+
 @end

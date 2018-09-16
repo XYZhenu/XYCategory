@@ -32,7 +32,7 @@
     animation.duration = 0.5;
     animation.type = @"cube";
     animation.subtype = kCATransitionFromTop;
-    animation.timingFunction = UIViewAnimationOptionCurveEaseInOut;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.layer addAnimation:animation forKey:@"animation"];
 }
 @end

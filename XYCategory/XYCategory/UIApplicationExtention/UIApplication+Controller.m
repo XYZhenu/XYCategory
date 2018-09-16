@@ -43,7 +43,7 @@
         [[self navigationController] pushViewController:viewController animated:animate];
     }
 }
-- (void)pushAlert:(nullable NSString*)title info:(NSString*)info cancel:(nullable void(^)())cancel confirm:(nullable void(^)())confirm
+- (void)pushAlert:(nullable NSString*)title info:(NSString*)info cancel:(nullable void(^)(void))cancel confirm:(nullable void(^)(void))confirm
 {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:title message:info preferredStyle:UIAlertControllerStyleAlert];
     if (cancel) {
@@ -68,7 +68,7 @@
 + (void)pushViewController:(UIViewController *)viewController animate:(BOOL)animate {
     [[UIApplication sharedApplication] pushViewController:viewController animate:animate];
 }
-+ (void)pushAlert:(nullable NSString*)title info:(NSString*)info cancel:(nullable void(^)())cancel confirm:(nullable void(^)())confirm {
++ (void)pushAlert:(nullable NSString*)title info:(NSString*)info cancel:(nullable void(^)(void))cancel confirm:(nullable void(^)(void))confirm {
     [[UIApplication sharedApplication] pushAlert:title info:info cancel:cancel confirm:confirm];
 }
 @end

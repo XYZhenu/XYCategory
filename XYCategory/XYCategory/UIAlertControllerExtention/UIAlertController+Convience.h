@@ -13,14 +13,14 @@ NS_ASSUME_NONNULL_BEGIN;
 @end
 
 @interface UIViewController (XYAlert)
-- (UIAlertController *)alertMsg:(nullable NSString *)msg cancel:(nullable void(^)())cancel;
-- (UIAlertController *)alertMsg:(nullable NSString *)msg confirm:(nullable void(^)())confirm;
-- (UIAlertController *)alertMsg:(nullable NSString *)msg cancel:(nullable void(^)())cancel confirm:(nullable void(^)())confirm;
+- (UIAlertController *)alertMsg:(nullable NSString *)msg cancel:(nullable void(^)(void))cancel;
+- (UIAlertController *)alertMsg:(nullable NSString *)msg confirm:(nullable void(^)(void))confirm;
+- (UIAlertController *)alertMsg:(nullable NSString *)msg cancel:(nullable void(^)(void))cancel confirm:(nullable void(^)(void))confirm;
 
 @end
 
 @interface UIViewController (XYSheet)
-- (UIAlertController *)sheetMsg:(nullable id)msg title:(nullable NSString *)title cancel:(nullable void(^)())cancel confirm:(nullable void(^)(NSInteger index))confirm;
+- (UIAlertController *)sheetMsg:(nullable id)msg title:(nullable NSString *)title cancel:(nullable void(^)(void))cancel confirm:(nullable void(^)(NSInteger index))confirm;
 
 @end
 NS_ASSUME_NONNULL_END;
