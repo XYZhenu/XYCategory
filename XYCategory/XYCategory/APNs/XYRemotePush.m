@@ -44,7 +44,7 @@
     if (openSound) {option|=1<<1;}
     if (openAlert) {option|=1<<2;}
     _pushOption = option;
-    if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
+    if (@available(iOS 10.0, *)) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
         [center requestAuthorizationWithOptions:option completionHandler:^(BOOL granted, NSError * _Nullable error){
@@ -52,7 +52,7 @@
                 [app performSelectorOnMainThread:@selector(registerForRemoteNotifications) withObject:nil waitUntilDone:NO modes:@[NSRunLoopCommonModes]];
             }
         }];
-    }else if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"8.0")){
+    } else {
         [app registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:option categories:nil]];
     }
 }

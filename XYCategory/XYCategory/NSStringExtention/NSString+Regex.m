@@ -15,7 +15,7 @@
     return [pred evaluateWithObject:self];
 }
 -(BOOL)validPhoneNum{
-    NSString *pattern = @"^(1[3|4|5|7|8][0-9])\\d{8}$";
+    NSString *pattern = @"^(1[0-9][0-9])\\d{8}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [pred evaluateWithObject:self];
 }

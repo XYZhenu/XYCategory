@@ -86,7 +86,14 @@ static char callBackKey;
 }
 
 -(void)pushClass:(Class)cls parma:(NSDictionary<NSString*, id>*)parma callBack:(void(^)(NSDictionary<NSString*, id>* message))callBack{
-    UIViewController* obj = [UIStoryboard instantiateVC:cls];
+    UIViewController* obj = nil;
+    @try {
+        obj = [UIStoryboard instantiateVC:cls];
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
     obj.callback = callBack;
     obj.parma = parma;
     if (parma && parma[keyVCTitle]) {
