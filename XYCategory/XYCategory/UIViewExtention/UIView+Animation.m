@@ -23,7 +23,9 @@
         {
             [UIView animateWithDuration:0.05 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
                 self.transform =CGAffineTransformIdentity;
-            } completion:NULL];
+            } completion:nil];
+        } else {
+            self.transform =CGAffineTransformIdentity;
         }
     }];
 }
