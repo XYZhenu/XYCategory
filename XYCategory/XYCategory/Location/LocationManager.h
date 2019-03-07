@@ -12,7 +12,7 @@
 #define kLocationManager  [LocationManager Instance]
 @interface LocationManager : NSObject
 +(instancetype)Instance;
-@property(nonatomic,assign)CLLocation *location;
+@property(nonatomic,strong)CLLocation *location;
 @property(nonatomic,assign)double latitude;
 @property(nonatomic,assign)double longitude;
 @property (strong, nonatomic) NSString *city;
