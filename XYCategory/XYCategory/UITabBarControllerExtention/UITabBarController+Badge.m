@@ -98,7 +98,7 @@
 
 @implementation UITabBarController (XYBadge)
 - (void)setItemsImage:(NSArray*)images selectedImages:(NSArray*)selectedImages {
-    [self.tabBar setItemsImage:images selectedImages:selectedImages title:nil];
+    [self.tabBar setItemsImage:images selectedImages:selectedImages titles:nil];
 }
 - (void)setTab:(NSUInteger)tabIndex badgeValue:(id)value {
     [self.tabBar setTab:tabIndex badgeValue:value];
