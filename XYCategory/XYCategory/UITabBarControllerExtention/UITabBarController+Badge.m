@@ -8,12 +8,13 @@
 
 #import "UITabBarController+Badge.h"
 
-@implementation UITabBarController (XYBadge)
-- (void)setItemsImage:(NSArray*)images selectedImages:(NSArray*)selectedImages {
-    NSArray* tabs = self.tabBar.items;
+@implementation UITabBar (XYBadge)
+- (void)setItemsImage:(NSArray*)images selectedImages:(NSArray*)selectedImages titles:(NSArray*)titles {
+    NSArray* tabs = self.items;
     UITabBarItem* item;
     for (int i=0; i<tabs.count; i++) {
         item = tabs[i];
+        item.tag = i;
         UIImage* image1 = nil;
         if ([images[i] isKindOfClass:[UIImage class]]) {
             image1 = images[i];
@@ -27,10 +28,13 @@
             image1 = [UIImage imageNamed:selectedImages[i]];
         }
         item.selectedImage = [image1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        if (titles) {
+            item.title = titles[i];
+        }
     }
 }
 - (void)setTab:(NSUInteger)tabIndex badgeValue:(id)value {
-    if (self.tabBar.items.count < tabIndex + 1) return;
+    if (self.items.count < tabIndex + 1) return;
     NSString* badgevalue = nil;
     if ([value isKindOfClass:[NSString class]]) {
         
@@ -54,40 +58,55 @@
             badgevalue = @(num).stringValue;
         }
     }
-    self.tabBar.items[tabIndex].badgeValue = badgevalue;
+    self.items[tabIndex].badgeValue = badgevalue;
 }
 - (void)showRedDotOnIndex:(int)index{
-    if (self.tabBar.items.count < index + 1) return;
+    if (self.items.count < index + 1) return;
     //移除之前的小红点
-    self.tabBar.items[index].badgeValue = nil;
+    self.items[index].badgeValue = nil;
     [self removeRedDotOnIndex:index];
     //新建小红点
     UIView *badgeView = [[UIView alloc]init];
     badgeView.tag = 888 + index;
     badgeView.layer.cornerRadius = 4;
     badgeView.backgroundColor = [UIColor redColor];
-    CGRect tabFrame = self.tabBar.frame;
+    CGRect tabFrame = self.frame;
     
     //确定小红点的位置
-    float percentX = (index +0.6) / self.tabBar.items.count;
+    float percentX = (index +0.6) / self.items.count;
     CGFloat x = ceilf(percentX * tabFrame.size.width);
     CGFloat y = ceilf(0.1 * tabFrame.size.height);
     badgeView.frame = CGRectMake(x, y, 8, 8);
-    [self.tabBar addSubview:badgeView];
+    [self addSubview:badgeView];
 }
 
 - (void)hideRedDotOnIndex:(int)index{
-    if (self.tabBar.items.count < index + 1) return;
+    if (self.items.count < index + 1) return;
     //移除小红点
     [self removeRedDotOnIndex:index];
 }
 
 - (void)removeRedDotOnIndex:(int)index{
     //按照tag值进行移除
-    for (UIView *subView in self.tabBar.subviews) {
+    for (UIView *subView in self.subviews) {
         if (subView.tag == 888+index) {
             [subView removeFromSuperview];
         }
     }
+}
+@end
+
+@implementation UITabBarController (XYBadge)
+- (void)setItemsImage:(NSArray*)images selectedImages:(NSArray*)selectedImages {
+    [self.tabBar setItemsImage:images selectedImages:selectedImages title:nil];
+}
+- (void)setTab:(NSUInteger)tabIndex badgeValue:(id)value {
+    [self.tabBar setTab:tabIndex badgeValue:value];
+}
+- (void)showRedDotOnIndex:(int)index {
+    [self.tabBar showRedDotOnIndex:index];
+}
+- (void)hideRedDotOnIndex:(int)index {
+    [self.tabBar hideRedDotOnIndex:index];
 }
 @end

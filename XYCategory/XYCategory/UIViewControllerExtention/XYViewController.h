@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface XYViewController : UIViewController
+@property(nonatomic,assign)BOOL alwaysHideTabbar;//default NO;
 @end
