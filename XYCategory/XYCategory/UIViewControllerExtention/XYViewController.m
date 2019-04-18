@@ -22,6 +22,7 @@
     return self;
 }
 -(void)awakeFromNib {
+    [super awakeFromNib];
     self.alwaysHideTabbar = NO;
 }
 -(BOOL)shouldAutorotate{
