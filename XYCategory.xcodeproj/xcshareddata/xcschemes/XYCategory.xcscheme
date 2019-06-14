@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC8DDCE11EEFBB750009C5AC"
-               BuildableName = "XYCategory.app"
+               BlueprintIdentifier = "ACC6EEBA22B3D90100BF0F97"
+               BuildableName = "XYCategory.framework"
                BlueprintName = "XYCategory"
                ReferencedContainer = "container:XYCategory.xcodeproj">
             </BuildableReference>
@@ -32,8 +32,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AC8DDCE11EEFBB750009C5AC"
-            BuildableName = "XYCategory.app"
+            BlueprintIdentifier = "ACC6EEBA22B3D90100BF0F97"
+            BuildableName = "XYCategory.framework"
             BlueprintName = "XYCategory"
             ReferencedContainer = "container:XYCategory.xcodeproj">
          </BuildableReference>
@@ -55,8 +55,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AC8DDCE11EEFBB750009C5AC"
-            BuildableName = "XYCategory.app"
+            BlueprintIdentifier = "ACC6EEBA22B3D90100BF0F97"
+            BuildableName = "XYCategory.framework"
             BlueprintName = "XYCategory"
             ReferencedContainer = "container:XYCategory.xcodeproj">
          </BuildableReference>
@@ -74,8 +74,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AC8DDCE11EEFBB750009C5AC"
-            BuildableName = "XYCategory.app"
+            BlueprintIdentifier = "ACC6EEBA22B3D90100BF0F97"
+            BuildableName = "XYCategory.framework"
             BlueprintName = "XYCategory"
             ReferencedContainer = "container:XYCategory.xcodeproj">
          </BuildableReference>

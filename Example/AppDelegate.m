@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  XYCategory
+//  Example
 //
-//  Created by xyzhenu on 2017/6/13.
-//  Copyright © 2017年 xyzhenu. All rights reserved.
+//  Created by xyzhenu on 2019/6/14.
+//  Copyright © 2019 xyzhenu. All rights reserved.
 //
 
 #import "AppDelegate.h"

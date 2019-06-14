@@ -1,7 +1,7 @@
 # coding: utf-8
 Pod::Spec.new do |s|
     s.name         = "XYCategory"
-    s.version      = "0.0.1"
+    s.version      = "0.0.2"
     s.summary      = "XYCategory Source ."
     s.description  = <<-DESC
                    xyzhenu framework
@@ -22,16 +22,16 @@ Pod::Spec.new do |s|
 #    s.libraries = "stdc++"
 
 s.subspec 'Core' do |c|
-    c.source_files = 'XYCategory/XYCategory/**/*.{h,m}'
-    c.exclude_files = 'XYCategory/XYCategory/Location/*'
-    c.resources = 'XYCategory/XYCategory/*.bundle'
+    c.source_files = 'XYCategory/**/*.{h,m}'
+    c.exclude_files = 'XYCategory/Location/*'
+    c.resources = 'XYCategory/*.bundle'
     c.requires_arc = true
     c.xcconfig = { "OTHER_LINK_FLAG" => '$(inherited) -ObjC'}
     c.frameworks = 'UserNotifications'
 end
 
 s.subspec 'Location' do |l|
-    l.source_files = 'XYCategory/XYCategory/Location/*.{h,m}'
+    l.source_files = 'XYCategory/Location/*.{h,m}'
     l.requires_arc = true
     l.frameworks = 'CoreLocation'
 end
