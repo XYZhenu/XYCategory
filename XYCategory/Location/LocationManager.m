@@ -44,8 +44,11 @@
 -(void)updateOnce:(BOOL)once{
     self.shouldUpdateOnce = once;
     if ([CLLocationManager authorizationStatus]<3) {
-//        [_locationManager requestAlwaysAuthorization];
+#if TARGET_OS_UIKITFORMAC
+        [_locationManager requestAlwaysAuthorization];
+#else
         [_locationManager requestWhenInUseAuthorization];
+#endif
     }
     [self.locationManager startUpdatingLocation];
     NSLog(@"开始更新位置");
