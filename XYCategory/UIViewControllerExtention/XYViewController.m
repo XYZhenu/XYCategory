@@ -46,7 +46,6 @@
         self.tabBarController.tabBar.hidden=NO;
         self.tabBarController.tabBar.translucent=NO;
     }
-    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationPortrait animated:NO];
 }
 
 @end
